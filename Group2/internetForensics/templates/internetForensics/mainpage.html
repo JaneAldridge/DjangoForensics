@@ -1,0 +1,26 @@
+{% extends 'internetForensics/main.html' %} <!-- inheritance from main.html to avoid redundancy -->
+
+{% block content %}
+
+
+<!--Stylesheet css-->
+<style>
+  .main-page-menu{
+      background: rgb(44, 78, 81);
+      position: bottom;
+      column-width: 50in;
+      text-align: center;
+      color: rgb(188, 188, 188);
+      transition: margin-left .5s;
+    
+  }
+</style>
+
+<div class="main-page-menu">
+  <h1> User Dashboard</h1>
+</div>
+
+{% include 'internetForensics/filling.html' %} <!-- inheritance of files -->
+
+
+{% endblock %}

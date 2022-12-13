@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Dutch Police Internet Forensics Systems</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+   
+    <!--Stylesheet css-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #080710;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        rgb(23, 42, 44),
+        rgb(4, 224, 244)
+    );
+    left: -100px;
+    top: -100px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -100px;
+    bottom: -140px;
+}
+form{
+    height: 620px;
+    width: 500px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h1{
+    font-size: 42px;
+    font-weight: 600;
+    color: rgb(193, 195, 196);
+    line-height: 52px;
+    text-align: center;
+}
+
+form h3{
+    font-size: 30px;
+    font-weight: 500;
+    color: #f0eaea;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #f0ebeb;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #ffffff;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+</style>
+
+<!--HTML code-->
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form method="POST" action="">
+        {% csrf_token %}  <!-- to secure the data-->
+        <h1><b>Dutch Police Internet Forensics Systems</b></h1></br>
+    </hr>
+        <h3>User Login Here</h3>
+
+        
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username" class="form-control">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" class="form-control">
+{{form.errors}} <!--SO AS TO DISPLAY THE FORM ERRORS-->
+
+        <button> Log In </button>
+        
+    </form>
+    {% for message in messages %}
+    <p id="messages">{{message}}</p>
+    {% endfor %}
+</body>
+</html>
+
+
+
+
