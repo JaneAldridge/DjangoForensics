@@ -45,7 +45,6 @@ nav.main-menu.expanded {
   overflow: hidden;
   -webkit-transition: width 0.05s linear;
   transition: width 0.05s linear;
-  -webkit-transform: translateZ(0) scale(1, 1);
   z-index: 1000;
 }
 
@@ -68,7 +67,6 @@ nav.main-menu.expanded {
   font-family: arial;
   font-size: 14px;
   text-decoration: none;
-  -webkit-transform: translateZ(0) scale(1, 1);
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
@@ -91,6 +89,11 @@ nav.main-menu.expanded {
   font-family: "Titillium Web", sans-serif;
 }
 
+.main-menu > ul.user {
+  color:  rgb(180, 198, 201);
+  font-weight: 200;
+}
+
 .main-menu > ul.admin {
     position: absolute;
     left: 0;
@@ -101,6 +104,7 @@ nav.main-menu.expanded {
   position: absolute;
   left: 0;
   bottom: 0;
+
 }
 
 .no-touch .scrollable.hover {
@@ -165,11 +169,11 @@ nav.main-menu li.active > a,
 <body>
   <div class="area"></div>
   <nav class="main-menu">
-    <ul>
+    <ul class="user">
       <li>
-          <i class="fa fa-user fa-4x"></i>
+          <i class="fa fa-user fa-5x"></i>
           <span class="nav-text">
-           <b>Welcome, User</b></br> 
+           <b>Welcome, {{request.user}}</b></br> 
           </span>
         </a>
 
@@ -183,20 +187,14 @@ nav.main-menu li.active > a,
         </a>
 
       </li>
-      <li class="has-subnav">
-        <a href="#">
-          <i class="fa fa-list fa-2x"></i>
-          <span class="nav-text">
-            Forms
-          </span>
-        </a>
+    
 
       </li>
       <li class="has-subnav">
         <a href="{% url 'cases' %}">
           <i class="fa fa-folder-open fa-2x"></i>
           <span class="nav-text">
-            Cases
+          Manage Cases
           </span>
         </a>
 
@@ -205,7 +203,7 @@ nav.main-menu li.active > a,
         <a href="{% url 'reports' %}">
           <i class="fa fa-bar-chart-o fa-2x"></i>
           <span class="nav-text">
-            Reports
+          Manage and Review Reports
           </span>
         </a>
       </li>
@@ -213,18 +211,11 @@ nav.main-menu li.active > a,
         <a href="{% url 'audits' %}">
           <i class="fa fa-font fa-2x"></i>
           <span class="nav-text">
-           Audits
+          Manage Audits
           </span>
         </a>
       </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-table fa-2x"></i>
-          <span class="nav-text">
-            Tables
-          </span>
-        </a>
-      </li>
+    
       <li>
         <a href="{% url 'criminalactivity' %}">
           <i class="fa fa-map-marker fa-2x"></i>
@@ -240,17 +231,17 @@ nav.main-menu li.active > a,
         <a href="">
           <i class="fa fa-cog fa-2x"></i>
           <span class="nav-text">
-            Administrator Dashboard
+           <b>Administrator Dashboard</b> 
           </span>
         </a>
       </li>
 
     <ul class="logout">
       <li>
-        <a href="Group2\internetForensics\templates\internetForensics\index.html">
+        <a href="{% url 'logout' %}">
           <i class="fa fa-power-off fa-2x"></i>
           <span class="nav-text">
-            Logout
+            <b>Logout</b>
           </span>
         </a>
       </li>
