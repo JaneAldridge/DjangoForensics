@@ -1,10 +1,14 @@
 from django.urls import path #IMPORTING PATH TO CREATE PATHS TO HTML PAGES
+from django.contrib import admin
 from . import views #Importing from views.py file 
 from internetForensics.views import login
+
 
 #importing the url path from views.py file 
 
 urlpatterns = [
+
+
 
     path('', views.login, name="login"),
     path('login/',views.login, name="login"),

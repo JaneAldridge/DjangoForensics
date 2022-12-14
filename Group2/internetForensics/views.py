@@ -1,10 +1,12 @@
 #DJANGO IMPORTS
 
+from django.contrib import admin
 from django.shortcuts import render, redirect #to allow redirection from one page to another pages
 from django.http import HttpResponse #FOR HTTP RESPONSE
 from django.shortcuts import render
+from django.contrib.auth.models import User #FOR IMPORTING USERS DATABASE
 from django.contrib.auth import authenticate, login, logout #FOR AUTH AND LOGOUT
-from django.contrib.auth.forms import AuthenticationForm
+
 from django.contrib import messages #FOR ERROR AND INFORMATION/STATUS MESSAGES 
 from django.contrib.auth.decorators import login_required #FOR ENABLING VIEW RESTRICTIONS UNTIL LOGGED IN 
 
@@ -16,18 +18,18 @@ from django.contrib.auth.decorators import login_required #FOR ENABLING VIEW RES
 def login(request):
 
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST.get("username")
+        password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
    
-    if user is not None:
-        login(request, user)
+    if request.user.is_authenticated:
+        messages.success(request, 'Login Successful')
         return redirect('mainpage')
+    
     else:
-        messages.info(request, 'Username or Password is Incorrect')
-
-    context = {}
-    return render(request, 'internetForensics/login.html', context)
+        messages.info(request, 'Invalid Username or Password')
+        context = {}
+        return render(request, 'internetForensics/login.html', context)
 
 
 # LOG OUT REQUEST
