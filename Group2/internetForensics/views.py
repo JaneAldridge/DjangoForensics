@@ -1,17 +1,23 @@
-from django.shortcuts import render, redirect
+#DJANGO IMPORTS
+
+from django.shortcuts import render, redirect #to allow redirection from one page to another pages
+from django.http import HttpResponse #FOR HTTP RESPONSE
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login, logout #FOR AUTH
+from django.contrib.auth import authenticate, login, logout #FOR AUTH AND LOGOUT
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages #FOR ERROR AND INFORMATION/STATUS MESSAGES 
+from django.contrib.auth.decorators import login_required #FOR ENABLING VIEW RESTRICTIONS UNTIL LOGGED IN 
+
 
 # Create your views here.
 
- # LOGIN  REQUEST AND AUTH 
+ # LOGIN  REQUEST, AUTHENTICATION AND RESTRICTION TO AN ALREADY AUTHENTICATED USER
 
-def index(request):
+def login(request):
 
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
         user = authenticate(request, username=username, password=password)
    
     if user is not None:
@@ -21,26 +27,35 @@ def index(request):
         messages.info(request, 'Username or Password is Incorrect')
 
     context = {}
-    return render(request, 'internetForensics/index.html', context)
+    return render(request, 'internetForensics/login.html', context)
 
 
-# LOG OUT
+# LOG OUT REQUEST
 def logoutUser(request):
-    return redirect('index')
+    logout(request)
+    return redirect('login')
 
-# REQUESTS FOR THE REST OF THE PAGES 
+
+
+# VIEW REQUESTS FOR THE REST OF THE PAGES AND ACCESS RESTRICTIONS
+
+@login_required(login_url='login')   # RESTRICTION PUT FROM 'IMPORT LOGIN_REQUIRED'
 def mainpage(request):
     return render(request, 'internetForensics/mainpage.html')
-    
-def reports(request): #report management
+
+@login_required(login_url='login')   # RESTRICTION PUT FROM 'IMPORT LOGIN_REQUIRED'
+def reports(request): #to view report management page
     return render(request, 'internetForensics/reports.html')
 
-def criminalActivity(request): #search and locate criminal activities
+@login_required(login_url='login')   # RESTRICTION PUT FROM 'IMPORT LOGIN_REQUIRED'
+def criminalActivity(request): #to view search and locate criminal activities page
     return render(request, 'internetForensics/criminalactivity.html')
 
-def audits(request): #manage audits
+@login_required(login_url='login')   # RESTRICTION PUT FROM 'IMPORT LOGIN_REQUIRED'
+def audits(request): #to view audits page
     return render(request, 'internetForensics/audits.html')   
 
-def cases(request): #manage cases
+@login_required(login_url='login')   # RESTRICTION PUT FROM 'IMPORT LOGIN_REQUIRED'
+def cases(request): #to view cases page
     return render(request, 'internetForensics/cases.html')
 
