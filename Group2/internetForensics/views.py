@@ -1,9 +1,9 @@
 #DJANGO IMPORTS
 
 from django.contrib import admin
+from django.conf import settings
 from django.shortcuts import render, redirect #to allow redirection from one page to another pages
 from django.http import HttpResponse #FOR HTTP RESPONSE
-from django.shortcuts import render
 from django.contrib.auth.models import User #FOR IMPORTING USERS DATABASE
 from django.contrib.auth import authenticate, login, logout #FOR AUTH AND LOGOUT
 
@@ -15,21 +15,21 @@ from django.contrib.auth.decorators import login_required #FOR ENABLING VIEW RES
 
  # LOGIN  REQUEST, AUTHENTICATION AND RESTRICTION TO AN ALREADY AUTHENTICATED USER
 
-def login(request):
+def Login(request):
 
     if request.method == 'POST':
         username = request.POST.get("username")
         password = request.POST.get("password")
+        
         user = authenticate(request, username=username, password=password)
-   
-    if request.user.is_authenticated:
-        messages.success(request, 'Login Successful')
-        return redirect('mainpage')
+        if user is not None:
+            login(request,user)
+            return redirect('mainpage')
+        
+        else:
+            messages.info(request, 'Invalid Username or Password')
     
-    else:
-        messages.info(request, 'Invalid Username or Password')
-        context = {}
-        return render(request, 'internetForensics/login.html', context)
+    return render(request, 'internetForensics/login.html')
 
 
 # LOG OUT REQUEST

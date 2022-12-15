@@ -120,25 +120,30 @@ button{
     border-radius: 5px;
     cursor: pointer;
 }
-messages{
-    color: #ff512f;
+.messages{
+    color:  #f09819
     text-align: center;
 }
-
-
 </style>
 
+
+
 <!--HTML code-->
+
 </head>
 <body>
+
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form method="POST">{% csrf_token %}
-        {% csrf_token %}  <!-- to secure the data-->
+
+<div class="form">
+   
+    <form action="" method="POST"> {% csrf_token %}  <!-- to secure the data-->
+       
         <h1><b>Dutch Police Internet Forensics Systems</b></h1></br>
-    </hr>
+    
         <h3>User Login Here</h3>
         
         <label for="username">Username</label>
@@ -146,22 +151,26 @@ messages{
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" name="password">
- 
-        {% for message in messages %} <!--SO AS TO DISPLAY MESSAGES OR ERRORS-->
-        <p id="messages">{{message}}</p>
+
+        {% for message in messages %} <!--SO AS TO DISPLAY MESSAGES OR ERRORS--> 
+        <div class="messages"><p id="messages">{{message}}</p> </div>
         {% endfor %} 
 
         <button type='submit'> Log In </button>
 
-        
+   
     </form>
-
+  </div> 
   
 
  
 
 </body>
 </html>
+
+    
+       
+       
 
 
 
