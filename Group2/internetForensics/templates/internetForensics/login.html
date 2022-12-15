@@ -6,7 +6,7 @@
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
    
     <!--Stylesheet css-->
     <style media="screen">
@@ -120,52 +120,58 @@ button{
     border-radius: 5px;
     cursor: pointer;
 }
-
-.mfooter{
-  display:inline-block;
-  width: 100%;
-  text-align: center;
-  color: #b5b5b5;
+.messages{
+    color:  #f09819
+    text-align: center;
 }
-
 </style>
 
+
+
 <!--HTML code-->
+
 </head>
 <body>
+
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form method="POST">{% csrf_token %}
-        {% csrf_token %}  <!-- to secure the data-->
-        <h1><b>Dutch Police Internet Forensics Systems</b></h1></br>
-    </hr>
-        <h3>User Login Here</h3>
 
+<div class="form">
+   
+    <form action="" method="POST"> {% csrf_token %}  <!-- to secure the data-->
+       
+        <h1><b>Dutch Police Internet Forensics Systems</b></h1></br>
+    
+        <h3>User Login Here</h3>
         
         <label for="username">Username</label>
         <input type="text" placeholder="Username" name="username">
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" name="password">
-
-        {{form.errors}} <!--SO AS TO DISPLAY THE FORM ERRORS-->
-
         <button type='submit'> Log In </button>
         
+        {% for message in messages %} <!--SO AS TO DISPLAY MESSAGES OR ERRORS--> 
+        <div class="messages"><p id="messages">{{message}}</p> </div>
+        {% endfor %} 
+
+        
+
+   
     </form>
+  </div> 
+  
 
-    {% for message in messages %}
-    <p id="messages">{{message}}</p>
-    {% endfor %}
-
-    <div class="mfooter">
-        <p> &copy; <script>document.write(new Date().getFullYear())</script>. All rights reserved.</p>
-     </div>
+ 
 
 </body>
 </html>
+
+    
+       
+       
 
 
 
