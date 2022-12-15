@@ -46,17 +46,14 @@ def logoutUser(request):
 # VIEW REQUESTS FOR THE REST OF THE PAGES AND ACCESS RESTRICTIONS
 
 @login_required(login_url='login')   # RESTRICTION ON UNAUTHENTICATED USERS AND DERIVED FROM 'IMPORT LOGIN_REQUIRED'
-@allowed_users(allowed_roles=['admin','managers','senior_security_analysts','junior_security_analyst','police_officers']) # ACCESS CONTROL AS PER THE USER ROLES 
 def mainpage(request):
     return render(request, 'internetForensics/mainpage.html')
 
 @login_required(login_url='login')    # RESTRICTION ON UNAUTHENTICATED USERS AND DERIVED FROM 'IMPORT LOGIN_REQUIRED'
-@allowed_users(allowed_roles=['admin','managers','senior_security_analysts','junior_security_analyst','police_officers']) # ACCESS CONTROL AS PER THE USER ROLES 
 def reports(request): #to view report management page
     return render(request, 'internetForensics/reports.html')
 
 @login_required(login_url='login')   # RESTRICTION ON UNAUTHENTICATED USERS AND DERIVED FROM 'IMPORT LOGIN_REQUIRED'
-@allowed_users(allowed_roles=['admin','managers','senior_security_analysts','junior_security_analyst','police_officers']) # ACCESS CONTROL AS PER THE USER ROLES 
 def criminalActivity(request): #to view search and locate criminal activities page
     return render(request, 'internetForensics/criminalactivity.html')
 
@@ -66,7 +63,6 @@ def audits(request): #to view audits page
     return render(request, 'internetForensics/audits.html')   
 
 @login_required(login_url='login')    # RESTRICTION ON UNAUTHENTICATED USERS AND DERIVED FROM 'IMPORT LOGIN_REQUIRED'
-@allowed_users(allowed_roles=['admin','managers','senior_security_analysts','junior_security_analyst','police_officers']) # ACCESS CONTROL AS PER THE USER ROLES 
 def cases(request): #to view cases page
     return render(request, 'internetForensics/cases.html')
 
