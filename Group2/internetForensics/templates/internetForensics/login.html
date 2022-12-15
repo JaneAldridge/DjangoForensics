@@ -151,12 +151,13 @@ button{
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" name="password">
-
+        <button type='submit'> Log In </button>
+        
         {% for message in messages %} <!--SO AS TO DISPLAY MESSAGES OR ERRORS--> 
         <div class="messages"><p id="messages">{{message}}</p> </div>
         {% endfor %} 
 
-        <button type='submit'> Log In </button>
+        
 
    
     </form>

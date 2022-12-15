@@ -7,9 +7,6 @@ from .views import login
 #importing the url path from views.py file 
 
 urlpatterns = [
-
-
-
     path('', views.Login, name="login"),
     path('login/',views.Login, name="login"),
     path('logout/',views.logoutUser, name="logout"),
