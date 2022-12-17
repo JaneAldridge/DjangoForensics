@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_password_validators',
+     'django_password_validators.password_history',
+
     'internetForensics'
 ]
 
@@ -49,6 +52,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+
+   
 ]
 
 ROOT_URLCONF = 'Group2.urls'
@@ -89,17 +95,51 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'OPTIONS': {
+         'max_similarity': 0.7,
+         'user_attributes': ("username", "first_name", "last_name", "email")
+      }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+           'OPTIONS': {
+            'min_length': 8,
+            }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
+  
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+        'OPTIONS': {    
+            'last_passwords': 5 # Only the last 5 passwords entered by the user
+        }
+    },
+    {
+        'NAME': 'django_password_validators.password_character_requirements.password_validation.PasswordCharacterValidator',
+        'OPTIONS': {
+             'min_length_digit': 1,
+             'min_length_special': 1,
+             'min_length_lower': 1,
+             'min_length_upper': 1,
+             'special_characters': "~!@#$%^&*()_+:;'[]"
+         }
+    },
 ]
+
+
+# So as to keep updating the expiry time with every request
+
+SESSION_SAVE_EVERY_REQUEST = True
+
+PASSWORD_EXPIRE_FORCE = True #to force password change
+
+
+PASSWORD_EXPIRE_EXCLUDE_SUPERUSERS = True #to exclude superusers from the password expiration
 
 
 # Internationalization
@@ -123,4 +163,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 import os

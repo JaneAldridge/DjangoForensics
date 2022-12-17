@@ -1,4 +1,6 @@
+
 <!--NAVIGATION BAR HTML AND CSS TO MINIMIZE CODE REDUNDANCY WHEN CREATING OTHER PAGES-->
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -7,6 +9,8 @@
   <meta charset="UTF-8">
   <title> Navigation Bar </title>
  
+
+
 
 <!--Stylesheet CSS-->
 <style>
@@ -94,6 +98,12 @@ nav.main-menu.expanded {
   font-weight: 200;
 }
 
+.main-menu > ul.ulogs {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
 .main-menu > ul.admin {
     position: absolute;
     left: 0;
@@ -164,7 +174,10 @@ nav.main-menu li.active > a,
 }
 
 </style>  
+
 </head>
+
+
 
 <body>
   <div class="area"></div>
@@ -185,9 +198,7 @@ nav.main-menu li.active > a,
             User Dashboard
           </span>
         </a>
-
       </li>
-    
 
       </li>
       <li class="has-subnav">
@@ -197,16 +208,35 @@ nav.main-menu li.active > a,
           Manage Cases
           </span>
         </a>
-
       </li>
+
+       <li>
+        <a href="{% url 'criminalactivity' %}">
+          <i class="fa fa-map-marker fa-2x"></i>
+          <span class="nav-text">
+            Search and Locate Criminal Activities
+          </span>
+        </a>
+      </li>
+   
       <li>
-        <a href="{% url 'reports' %}">
+        <a href="{% url 'create_reports' %}">
+          <i class="fa fa-file-text fa-2x"></i>
+          <span class="nav-text">
+          Create and View Reports
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'manage_reports' %}">
           <i class="fa fa-bar-chart-o fa-2x"></i>
           <span class="nav-text">
           Manage and Review Reports
           </span>
         </a>
       </li>
+
       <li>
         <a href="{% url 'audits' %}">
           <i class="fa fa-font fa-2x"></i>
@@ -215,27 +245,40 @@ nav.main-menu li.active > a,
           </span>
         </a>
       </li>
-    
-      <li>
-        <a href="{% url 'criminalactivity' %}">
-          <i class="fa fa-map-marker fa-2x"></i>
-          <span class="nav-text">
-            Search and Locate Criminal Activities
-          </span>
-        </a>
-      </li>
-      <li>
-    </ul>
-    <ul class="admin">
-      <li>
-        <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">
-          <i class="fa fa-cog fa-2x"></i>
-          <span class="nav-text">
-           <b>Administrator Dashboard</b> 
-          </span>
-        </a>
-      </li>
+      </ul>
+ 
+      <ul class="ulogs">
+        <li>
+          <a href="{% url 'changepassword' %}">
+            <i class="fa fa-key fa-2x"></i>
+            <span class="nav-text">
+             <b>Change Password</b> 
+            </span>
+          </a>
+        </li>
 
+        <li>
+      <ul class="ulogs">
+        <li>
+          <a href="{% url 'userslogs' %}">
+            <i class="fa fa-users fa-2x"></i>
+            <span class="nav-text">
+             <b>Manage Log Activities</b> 
+            </span>
+          </a>
+        </li>
+        <li>
+        
+        <ul class="admin">
+          <li>
+            <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">
+              <i class="fa fa-cog fa-2x"></i>
+              <span class="nav-text">
+               <b>Administrator Dashboard</b> 
+              </span>
+            </a>
+          </li>
+    
     <ul class="logout">
       <li>
         <a href="{% url 'logout' %}">

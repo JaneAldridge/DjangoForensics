@@ -1,0 +1,43 @@
+<!--HTML AND CSS FOR ERROR, SUCCESS, INFORMATIONAL MESSAGES--> 
+
+<style>
+#messages{
+    background-color: #e1dfdd;
+    position:absolute;
+    width:100%;
+    z-index: 1;
+    display:-moz-popup;
+    color:  #b96e05;
+    text-align: center; 
+    animation:messages 0.5s 1;
+    -webkit-animation:messages 0.5s 1;
+    animation-fill-mode: forwards;
+    animation-delay:2s;
+    -webkit-animation-delay:2s; /* Safari and Chrome */
+    -webkit-animation-fill-mode: forwards;
+} 
+
+@keyframes messages{
+    from {opacity :1;}
+    to {opacity :0;}
+}
+@-webkit-keyframes messages{
+    from {opacity :1;}
+    to {opacity :0;}
+} 
+</style>
+
+
+{% if messages %}
+
+{% for message in messages %}
+
+<div class="messages" role="alert"><p id="messages"> {{message}}</p></div>
+
+
+{% endfor %}
+
+{% endif %}
+
+
+

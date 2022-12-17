@@ -1,89 +1,120 @@
-<!--DATA FILLING IN HTML TO MINIMIZE CODE REDUNDANCY WHEN CREATING OTHER PAGES-->
-<br>
+<!--RANDOM DATA FILLING:--  USE OF INHERITANCE SO AS TO MINIMIZE CODE REDUNDANCY WHEN CREATING OTHER PAGES-->
+
 
 <!--Random Data to fill in the Pages-->
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="col">
-    <div class="col-md">
-        <div class="card text-center text-white mb-3" id="total-cases">
-            <div class="card-header">
-                <h5 class="card-title"> Total Cases</h5>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title"></h3>
-            </div>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <title> Dutch Police Internet Forensics Systems </title>
+
+
+<style>
+*{
+    box-sizing:border-box;
+}
+.column{
+    margin-left: 12%;
+    float:left;
+    width: 33.33%;
+    padding: 10px;
+}
+.row{
+    margin: 0 -5px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both; 
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    background-color: #e0dddd;
+    text-align: center;
+    color: rgb(34, 46, 47);
+    
+}
+
+    
+</style>
+
+</head>
+<body>
+
+<div class="row">
+    <div class="column">
+      <div class="card">
+        <h1>Total Cases</h1><hr>
+        <h1><i>5613</i></h1>
+      </div>
     </div>
-</div>
-<div class="col">
-    <div class="col-md">
-        <div class="card text-center text-white mb-3" id="cases-pending">
-            <div class="card-header">
-                <h5 class="card-title"> Cases Pending</h5>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title"></h3>
-            </div>
-        </div>
+  
+    <div class="column">
+      <div class="card">
+        <h1>Cases Pending</h1><hr>
+        <h1><i>512</p>
+      </div>
     </div>
-</div>
-<div class="col">
-    <div class="col-md">
-        <div class="card text-center text-white mb-3" id="cases-complete">
-            <div class="card-header">
-                <h5 class="card-title"> Complete Cases</h5>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title"></h3>
-            </div>
-        </div>
     </div>
-</div>
-<div class="col">
-    <div class="col-md">
-        <div class="card text-center text-white mb-3" id="cases-to-be-reviewed">
-            <div class="card-header">
-                <h5 class="card-title"> Cases to be Reviewed</h5>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title"></h3>
-            </div>
-        </div>
+
+    <div class="row">
+    <div class="column">
+      <div class="card">
+        <h1>Complete Cases</h1><hr>
+        <h1><i>4101</i></h1>
+      </div>
     </div>
-</div>
-<div class="col">
-    <div class="col-md">
-        <div class="card text-center text-white mb-3" id="report-filed">
-            <div class="card-header">
-                <h5 class="card-title"> Reports Filed</h5>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title"></h3>
-            </div>
-        </div>
+    
+    <div class="column">
+      <div class="card">
+        <h1>Cases to be Reviewed</h1><hr>
+        <h1><i>1035</i></h1>
+      </div>
     </div>
-</div>
-<div class="col">
-    <div class="col-md">
-        <div class="card text-center text-white mb-3" id="criminal-activities-found">
-            <div class="card-header">
-                <h5 class="card-title"> No. of Criminal Activities Found</h5>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title"></h3>
-            </div>
-        </div>
     </div>
-</div>
-<div class="col">
-    <div class="col-md">
-        <div class="card text-center text-white mb-3" id="located-criminal-activities">
-            <div class="card-header">
-                <h5 class="card-title"> Located Criminal Activities</h5>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title"></h3>
-            </div>
-        </div>
+
+    <div class="row">
+  <div class="column">
+    <div class="card">
+      <h1>Reports Filled</h1><hr>
+      <h1><i>6052</i></h1>
     </div>
-</div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h1>No. of Criminal Activities Found</h1><hr>
+      <h1><i>10564</i></h1>
+    </div>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="column">
+    <div class="card">
+      <h1>Located Criminal Activities</h1><hr>
+      <h1><i>8535</i></h1>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h1>Reports Filled</h1><hr>
+      <h1><i>6052</i></h1>
+    </div>
+  </div>
+  </div>
+
+</body>
+</html>
+
+
