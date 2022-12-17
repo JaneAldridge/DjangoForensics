@@ -28,18 +28,5 @@ def allowed_users(allowed_roles=[]):
     return decorator
 
 
-# FUNCTION DECORATORS FOR ADMINS ONLY (TO ENABLE ACCESS CONTROL AS PER THE USER ROLES)
-def admin_only(view_func):
-    def wrapper_func(request, *args, **kwargs):
-
-        group = None
-        if request.user.groups.exists():
-            group = request.user.groups.all()[0].name
-
-        if group =='admin':
-            return view_func(request, *args, **kwargs)
-        else:
-            return redirect('mainpage')
-    return wrapper_func
 
 

@@ -37,11 +37,7 @@ h2{
   color: rgb(118, 116, 116);
 }
 
-.col{
-    padding:10px;
-    background-color: rgb(96, 144, 147);
-    text-align: center;
-}
+
 
 /* CSS FOR FOOTER */
 .majorfooter{
@@ -59,16 +55,18 @@ h2{
 </style>
 
 </head>
-
+  {% include 'internetForensics/messages.html' %} <!-- Inheritance of Messages html  -->
   <body>
 
     <div class="majorheader">
     <h2> Dutch Police Internet Forensics Systems </h2>
   </div>
 
+
+
 </hr>
    
-        {% include 'internetForensics/navbar.html' %} <!-- inheritance of files -->
+        {% include 'internetForensics/navbar.html' %} <!-- Inheritance of Navigation Bar html -->
 
     {% block content %}
 
